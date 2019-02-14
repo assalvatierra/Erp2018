@@ -8,6 +8,8 @@ namespace CRRP.Controllers
 {
     public class HomeController : Controller
     {
+        ErpDataLayer db = new ErpDataLayer();
+
         public ActionResult Index()
         {
             return View();

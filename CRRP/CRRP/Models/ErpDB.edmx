@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ErpDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ErpDBTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ErpDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ErpDBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SysCmdIdRefs" EntityType="ErpDB.SysCmdIdRef" />
+          <EntitySet Name="SysServices" EntityType="ErpDB.SysService" />
+          <EntitySet Name="EntBusinesses" EntityType="ErpDB.EntBusiness" />
+          <EntitySet Name="EntServices" EntityType="ErpDB.EntServices" />
+          <EntitySet Name="SysSetupTypes" EntityType="ErpDB.SysSetupType" />
+          <EntitySet Name="EntSupportFiles" EntityType="ErpDB.EntSupportFile" />
+          <EntitySet Name="EntAddresses" EntityType="ErpDB.EntAddress" />
+          <EntitySet Name="EntContacts" EntityType="ErpDB.EntContact" />
+          <EntitySet Name="SysMenus" EntityType="ErpDB.SysMenu" />
+          <EntitySet Name="SysServiceMenus" EntityType="ErpDB.SysServiceMenu" />
+          <EntitySet Name="SysAccessUsers" EntityType="ErpDB.SysAccessUser" />
+          <EntitySet Name="SysAccessRoles" EntityType="ErpDB.SysAccessRole" />
+          <EntitySet Name="EntSettings" EntityType="ErpDB.EntSetting" />
+          <EntitySet Name="SysSettings" EntityType="ErpDB.SysSetting" />
+          <AssociationSet Name="SysServiceEntServices" Association="ErpDB.SysServiceEntServices">
+            <End Role="SysService" EntitySet="SysServices" />
+            <End Role="EntServices" EntitySet="EntServices" />
+          </AssociationSet>
+          <AssociationSet Name="SysServiceSysServiceMenu" Association="ErpDB.SysServiceSysServiceMenu">
+            <End Role="SysService" EntitySet="SysServices" />
+            <End Role="SysServiceMenu" EntitySet="SysServiceMenus" />
+          </AssociationSet>
+          <AssociationSet Name="EntCompanyEntServices" Association="ErpDB.EntCompanyEntServices">
+            <End Role="EntBusiness" EntitySet="EntBusinesses" />
+            <End Role="EntServices" EntitySet="EntServices" />
+          </AssociationSet>
+          <AssociationSet Name="EntCompanyEntSupportFile" Association="ErpDB.EntCompanyEntSupportFile">
+            <End Role="EntBusiness" EntitySet="EntBusinesses" />
+            <End Role="EntSupportFile" EntitySet="EntSupportFiles" />
+          </AssociationSet>
+          <AssociationSet Name="EntCompanyEntAddress" Association="ErpDB.EntCompanyEntAddress">
+            <End Role="EntBusiness" EntitySet="EntBusinesses" />
+            <End Role="EntAddress" EntitySet="EntAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="EntCompanyEntContact" Association="ErpDB.EntCompanyEntContact">
+            <End Role="EntBusiness" EntitySet="EntBusinesses" />
+            <End Role="EntContact" EntitySet="EntContacts" />
+          </AssociationSet>
+          <AssociationSet Name="EntBusinessEntSetting" Association="ErpDB.EntBusinessEntSetting">
+            <End Role="EntBusiness" EntitySet="EntBusinesses" />
+            <End Role="EntSetting" EntitySet="EntSettings" />
+          </AssociationSet>
+          <AssociationSet Name="SysFileTypeEntSupportFile" Association="ErpDB.SysFileTypeEntSupportFile">
+            <End Role="SysSetupType" EntitySet="SysSetupTypes" />
+            <End Role="EntSupportFile" EntitySet="EntSupportFiles" />
+          </AssociationSet>
+          <AssociationSet Name="SysSetupTypeEntAddress" Association="ErpDB.SysSetupTypeEntAddress">
+            <End Role="SysSetupType" EntitySet="SysSetupTypes" />
+            <End Role="EntAddress" EntitySet="EntAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="SysSetupTypeEntContact" Association="ErpDB.SysSetupTypeEntContact">
+            <End Role="SysSetupType" EntitySet="SysSetupTypes" />
+            <End Role="EntContact" EntitySet="EntContacts" />
+          </AssociationSet>
+          <AssociationSet Name="SysSetupTypeEntSetting" Association="ErpDB.SysSetupTypeEntSetting">
+            <End Role="SysSetupType" EntitySet="SysSetupTypes" />
+            <End Role="EntSetting" EntitySet="EntSettings" />
+          </AssociationSet>
+          <AssociationSet Name="SysMenuSysServiceMenu" Association="ErpDB.SysMenuSysServiceMenu">
+            <End Role="SysMenu" EntitySet="SysMenus" />
+            <End Role="SysServiceMenu" EntitySet="SysServiceMenus" />
+          </AssociationSet>
+          <AssociationSet Name="SysMenuSysUserAccess" Association="ErpDB.SysMenuSysUserAccess">
+            <End Role="SysMenu" EntitySet="SysMenus" />
+            <End Role="SysAccessUser" EntitySet="SysAccessUsers" />
+          </AssociationSet>
+          <AssociationSet Name="SysMenuSysRoleAccess" Association="ErpDB.SysMenuSysRoleAccess">
+            <End Role="SysMenu" EntitySet="SysMenus" />
+            <End Role="SysAccessRole" EntitySet="SysAccessRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SysCmdIdRef">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CmdId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="true" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SysService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="IconPath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntServices" Relationship="ErpDB.SysServiceEntServices" FromRole="SysService" ToRole="EntServices" />
+          <NavigationProperty Name="SysServiceMenus" Relationship="ErpDB.SysServiceSysServiceMenu" FromRole="SysService" ToRole="SysServiceMenu" />
+        </EntityType>
+        <EntityType Name="EntBusiness">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="BussRegNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntServices" Relationship="ErpDB.EntCompanyEntServices" FromRole="EntBusiness" ToRole="EntServices" />
+          <NavigationProperty Name="EntSupportFiles" Relationship="ErpDB.EntCompanyEntSupportFile" FromRole="EntBusiness" ToRole="EntSupportFile" />
+          <NavigationProperty Name="EntAddresses" Relationship="ErpDB.EntCompanyEntAddress" FromRole="EntBusiness" ToRole="EntAddress" />
+          <NavigationProperty Name="EntContacts" Relationship="ErpDB.EntCompanyEntContact" FromRole="EntBusiness" ToRole="EntContact" />
+          <NavigationProperty Name="EntSettings" Relationship="ErpDB.EntBusinessEntSetting" FromRole="EntBusiness" ToRole="EntSetting" />
+        </EntityType>
+        <EntityType Name="EntServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysServiceId" Type="Int32" Nullable="false" />
+          <Property Name="EntCompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Expiry" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="SysService" Relationship="ErpDB.SysServiceEntServices" FromRole="EntServices" ToRole="SysService" />
+          <NavigationProperty Name="EntCompany" Relationship="ErpDB.EntCompanyEntServices" FromRole="EntServices" ToRole="EntBusiness" />
+        </EntityType>
+        <EntityType Name="SysSetupType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SysCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntSupportFiles" Relationship="ErpDB.SysFileTypeEntSupportFile" FromRole="SysSetupType" ToRole="EntSupportFile" />
+          <NavigationProperty Name="EntAddresses" Relationship="ErpDB.SysSetupTypeEntAddress" FromRole="SysSetupType" ToRole="EntAddress" />
+          <NavigationProperty Name="EntContacts" Relationship="ErpDB.SysSetupTypeEntContact" FromRole="SysSetupType" ToRole="EntContact" />
+          <NavigationProperty Name="EntSettings" Relationship="ErpDB.SysSetupTypeEntSetting" FromRole="SysSetupType" ToRole="EntSetting" />
+        </EntityType>
+        <EntityType Name="EntSupportFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysFileTypeId" Type="Int32" Nullable="false" />
+          <Property Name="EntCompanyId" Type="Int32" Nullable="false" />
+          <Property Name="UrlPath" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntCompany" Relationship="ErpDB.EntCompanyEntSupportFile" FromRole="EntSupportFile" ToRole="EntBusiness" />
+          <NavigationProperty Name="SysFileType" Relationship="ErpDB.SysFileTypeEntSupportFile" FromRole="EntSupportFile" ToRole="SysSetupType" />
+        </EntityType>
+        <EntityType Name="EntAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntCompanyId" Type="Int32" Nullable="false" />
+          <Property Name="SysSetupTypeId" Type="Int32" Nullable="false" />
+          <Property Name="add1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Add2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Add3" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Add4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Telno1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Telno2" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntCompany" Relationship="ErpDB.EntCompanyEntAddress" FromRole="EntAddress" ToRole="EntBusiness" />
+          <NavigationProperty Name="SysSetupType" Relationship="ErpDB.SysSetupTypeEntAddress" FromRole="EntAddress" ToRole="SysSetupType" />
+        </EntityType>
+        <EntityType Name="EntContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntCompanyId" Type="Int32" Nullable="false" />
+          <Property Name="SysSetupTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="TelNo1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TelNo2" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntCompany" Relationship="ErpDB.EntCompanyEntContact" FromRole="EntContact" ToRole="EntBusiness" />
+          <NavigationProperty Name="SysSetupType" Relationship="ErpDB.SysSetupTypeEntContact" FromRole="EntContact" ToRole="SysSetupType" />
+        </EntityType>
+        <EntityType Name="SysMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Menu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="Controller" Type="String" Nullable="true" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" Nullable="true" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Params" Type="String" Nullable="true" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="CmdId" Type="Int32" Nullable="true" />
+          <Property Name="Seqno" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SysServiceMenus" Relationship="ErpDB.SysMenuSysServiceMenu" FromRole="SysMenu" ToRole="SysServiceMenu" />
+          <NavigationProperty Name="SysUserAccesses" Relationship="ErpDB.SysMenuSysUserAccess" FromRole="SysMenu" ToRole="SysAccessUser" />
+          <NavigationProperty Name="SysRoleAccesses" Relationship="ErpDB.SysMenuSysRoleAccess" FromRole="SysMenu" ToRole="SysAccessRole" />
+        </EntityType>
+        <EntityType Name="SysServiceMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysMenuId" Type="Int32" Nullable="false" />
+          <Property Name="SysServiceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SysService" Relationship="ErpDB.SysServiceSysServiceMenu" FromRole="SysServiceMenu" ToRole="SysService" />
+          <NavigationProperty Name="SysMenu" Relationship="ErpDB.SysMenuSysServiceMenu" FromRole="SysServiceMenu" ToRole="SysMenu" />
+        </EntityType>
+        <EntityType Name="SysAccessUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SysMenuId" Type="Int32" Nullable="false" />
+          <Property Name="Seqno" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SysMenu" Relationship="ErpDB.SysMenuSysUserAccess" FromRole="SysAccessUser" ToRole="SysMenu" />
+        </EntityType>
+        <EntityType Name="SysAccessRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SysMenuId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SysMenu" Relationship="ErpDB.SysMenuSysRoleAccess" FromRole="SysAccessRole" ToRole="SysMenu" />
+        </EntityType>
+        <EntityType Name="EntSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysSetupTypeId" Type="Int32" Nullable="false" />
+          <Property Name="EntBusinessId" Type="Int32" Nullable="false" />
+          <Property Name="Value1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntBusiness" Relationship="ErpDB.EntBusinessEntSetting" FromRole="EntSetting" ToRole="EntBusiness" />
+          <NavigationProperty Name="SysSetupType" Relationship="ErpDB.SysSetupTypeEntSetting" FromRole="EntSetting" ToRole="SysSetupType" />
+        </EntityType>
+        <EntityType Name="SysSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysKey" Type="String" Nullable="false" />
+          <Property Name="SysValue" Type="String" Nullable="false" />
+          <Property Name="Remarks" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="SysServiceEntServices">
+          <End Type="ErpDB.SysService" Role="SysService" Multiplicity="1" />
+          <End Type="ErpDB.EntServices" Role="EntServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysService">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntServices">
+              <PropertyRef Name="SysServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysServiceSysServiceMenu">
+          <End Type="ErpDB.SysService" Role="SysService" Multiplicity="1" />
+          <End Type="ErpDB.SysServiceMenu" Role="SysServiceMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysService">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysServiceMenu">
+              <PropertyRef Name="SysServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EntCompanyEntServices">
+          <End Type="ErpDB.EntBusiness" Role="EntBusiness" Multiplicity="1" />
+          <End Type="ErpDB.EntServices" Role="EntServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntBusiness">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntServices">
+              <PropertyRef Name="EntCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EntCompanyEntSupportFile">
+          <End Type="ErpDB.EntBusiness" Role="EntBusiness" Multiplicity="1" />
+          <End Type="ErpDB.EntSupportFile" Role="EntSupportFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntBusiness">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntSupportFile">
+              <PropertyRef Name="EntCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EntCompanyEntAddress">
+          <End Type="ErpDB.EntBusiness" Role="EntBusiness" Multiplicity="1" />
+          <End Type="ErpDB.EntAddress" Role="EntAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntBusiness">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntAddress">
+              <PropertyRef Name="EntCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EntCompanyEntContact">
+          <End Type="ErpDB.EntBusiness" Role="EntBusiness" Multiplicity="1" />
+          <End Type="ErpDB.EntContact" Role="EntContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntBusiness">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntContact">
+              <PropertyRef Name="EntCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EntBusinessEntSetting">
+          <End Type="ErpDB.EntBusiness" Role="EntBusiness" Multiplicity="1" />
+          <End Type="ErpDB.EntSetting" Role="EntSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntBusiness">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntSetting">
+              <PropertyRef Name="EntBusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysFileTypeEntSupportFile">
+          <End Type="ErpDB.SysSetupType" Role="SysSetupType" Multiplicity="1" />
+          <End Type="ErpDB.EntSupportFile" Role="EntSupportFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysSetupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntSupportFile">
+              <PropertyRef Name="SysFileTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysSetupTypeEntAddress">
+          <End Type="ErpDB.SysSetupType" Role="SysSetupType" Multiplicity="1" />
+          <End Type="ErpDB.EntAddress" Role="EntAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysSetupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntAddress">
+              <PropertyRef Name="SysSetupTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysSetupTypeEntContact">
+          <End Type="ErpDB.SysSetupType" Role="SysSetupType" Multiplicity="1" />
+          <End Type="ErpDB.EntContact" Role="EntContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysSetupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntContact">
+              <PropertyRef Name="SysSetupTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysSetupTypeEntSetting">
+          <End Type="ErpDB.SysSetupType" Role="SysSetupType" Multiplicity="1" />
+          <End Type="ErpDB.EntSetting" Role="EntSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysSetupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntSetting">
+              <PropertyRef Name="SysSetupTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysMenuSysServiceMenu">
+          <End Type="ErpDB.SysMenu" Role="SysMenu" Multiplicity="1" />
+          <End Type="ErpDB.SysServiceMenu" Role="SysServiceMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysServiceMenu">
+              <PropertyRef Name="SysMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysMenuSysUserAccess">
+          <End Type="ErpDB.SysMenu" Role="SysMenu" Multiplicity="1" />
+          <End Type="ErpDB.SysAccessUser" Role="SysAccessUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysAccessUser">
+              <PropertyRef Name="SysMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysMenuSysRoleAccess">
+          <End Type="ErpDB.SysMenu" Role="SysMenu" Multiplicity="1" />
+          <End Type="ErpDB.SysAccessRole" Role="SysAccessRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysAccessRole">
+              <PropertyRef Name="SysMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ErpDB" />
+        <Alias Key="Target" Value="ErpDB.Store" />
+        <EntityContainerMapping CdmEntityContainer="ErpDBContainer" StorageEntityContainer="ErpDBTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

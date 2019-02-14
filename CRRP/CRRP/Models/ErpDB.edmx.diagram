@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66fa9de77a7a4e94833e1103e6e644be" Name="Diagram1" ZoomLevel="72" >
+        <EntityTypeShape EntityType="ErpDB.SysCmdIdRef" Width="1.5" PointX="9.75" PointY="11.625" />
+        <EntityTypeShape EntityType="ErpDB.SysService" Width="1.5" PointX="7.25" PointY="6.75" />
+        <EntityTypeShape EntityType="ErpDB.EntBusiness" Width="1.5" PointX="5" PointY="4.5" />
+        <EntityTypeShape EntityType="ErpDB.EntServices" Width="1.5" PointX="7.25" PointY="10.375" />
+        <EntityTypeShape EntityType="ErpDB.SysSetupType" Width="1.5" PointX="0.5" PointY="4.5" />
+        <EntityTypeShape EntityType="ErpDB.EntSupportFile" Width="1.5" PointX="2.75" PointY="10.875" />
+        <EntityTypeShape EntityType="ErpDB.EntAddress" Width="1.5" PointX="2.75" PointY="3.625" />
+        <EntityTypeShape EntityType="ErpDB.EntContact" Width="1.5" PointX="2.75" PointY="7.5" />
+        <EntityTypeShape EntityType="ErpDB.SysMenu" Width="1.5" PointX="9.75" PointY="3.125" />
+        <EntityTypeShape EntityType="ErpDB.SysServiceMenu" Width="1.5" PointX="7.25" PointY="3.125" />
+        <EntityTypeShape EntityType="ErpDB.SysAccessUser" Width="1.5" PointX="9.75" PointY="7.125" />
+        <EntityTypeShape EntityType="ErpDB.SysAccessRole" Width="1.5" PointX="9.75" PointY="0.5" />
+        <EntityTypeShape EntityType="ErpDB.EntSetting" Width="1.5" PointX="2.75" PointY="0.625" />
+        <EntityTypeShape EntityType="ErpDB.SysSetting" Width="1.5" PointX="9.75" PointY="9.5" />
+        <AssociationConnector Association="ErpDB.SysServiceEntServices" />
+        <AssociationConnector Association="ErpDB.SysServiceSysServiceMenu" />
+        <AssociationConnector Association="ErpDB.EntCompanyEntServices" />
+        <AssociationConnector Association="ErpDB.EntCompanyEntSupportFile" />
+        <AssociationConnector Association="ErpDB.EntCompanyEntAddress" />
+        <AssociationConnector Association="ErpDB.EntCompanyEntContact" />
+        <AssociationConnector Association="ErpDB.EntBusinessEntSetting" />
+        <AssociationConnector Association="ErpDB.SysFileTypeEntSupportFile" />
+        <AssociationConnector Association="ErpDB.SysSetupTypeEntAddress" />
+        <AssociationConnector Association="ErpDB.SysSetupTypeEntContact" />
+        <AssociationConnector Association="ErpDB.SysSetupTypeEntSetting" />
+        <AssociationConnector Association="ErpDB.SysMenuSysServiceMenu" />
+        <AssociationConnector Association="ErpDB.SysMenuSysUserAccess" />
+        <AssociationConnector Association="ErpDB.SysMenuSysRoleAccess" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

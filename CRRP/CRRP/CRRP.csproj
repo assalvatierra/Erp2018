@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -202,8 +204,66 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EntAddress.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntBusiness.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntContact.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntServices.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntSetting.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntSupportFile.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErpDataLayer.cs" />
+    <Compile Include="Models\ErpDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErpDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErpDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SysAccessRole.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysAccessUser.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysCmdIdRef.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysMenu.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysService.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysServiceMenu.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysSetting.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysSetupType.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -215,10 +275,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\ErpDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ErpDB.Context.cs</LastGenOutput>
+      <DependentUpon>ErpDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ErpDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ErpDB.cs</LastGenOutput>
+      <DependentUpon>ErpDB.edmx</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\ErpDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ErpDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ErpDB.edmx.diagram">
+      <DependentUpon>ErpDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -277,6 +354,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

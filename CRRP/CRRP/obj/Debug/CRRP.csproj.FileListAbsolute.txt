@@ -79,3 +79,4 @@ D:\Data\Real\Apps\GitHub\Erp2018\CRRP\CRRP\bin\Microsoft.Owin.Security.Twitter.x
 D:\Data\Real\Apps\GitHub\Erp2018\CRRP\CRRP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Data\Real\Apps\GitHub\Erp2018\CRRP\CRRP\obj\Debug\CRRP.dll
 D:\Data\Real\Apps\GitHub\Erp2018\CRRP\CRRP\obj\Debug\CRRP.pdb
+D:\Data\Real\Apps\GitHub\Erp2018\CRRP\CRRP\obj\Debug\CRRP.csprojResolveAssemblyReference.cache
